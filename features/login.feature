@@ -1,40 +1,132 @@
-Feature: Login Functionality
+Feature: Test Case for Verifying the Login functionality of the SauceDemo website
+
   @valid
-  Scenario Outline: Login with valid credentials
-    Given I navigated to login page
-    When I entered valid email address as "<email>" and valid password as "<password>" into the fields
-    And I click on Login button
-    Then I should get logged in
-    Examples:
-      |email                        |password           |
-      |Tester.testing@test.com      |TesterPassword     |
-      |Tester.testing1@test.com     |TesterPassword1    |
-      |Tester.testing2@test.com     |TesterPassword3    |
+  Scenario: Login to the SauceDemo website as standard user
+    Given I navigated to the "Login" Page
+    Then I see the title as "Swag Labs"
+    And I see the "Username" field
+    And I see the "Password" field
+    And I see the "Login" button
+    And I see the "Login Credentials"
+    And I see the "Login Password"
+    When I enter "Username" as "standard_user"
+    And I enter "Password" as "secret_sauce"
+    And I click the then "Login" button
+    Then I get logged in
 
-  @invalid-email
-  Scenario: Login with invalid email and valid password
-    Given I navigated to login page
-    When I entered invalid email address and valid password as "TesterPassword" into the fields
-    And I click on Login button
-    Then I should get proper warning message
+  Scenario: Login to the SauceDemo website as locked out user
+    Given I navigated to the "Login" Page
+    Then I see the title as "Swag Labs"
+    And I see the "Username" field
+    And I see the "Password" field
+    And I see the "Login" button
+    And I see the "Login Credentials"
+    And I see the "Login Password"
+    When I enter "Username" as "locked_out_user"
+    And I enter "Password" as "secret_sauce"
+    And I click the then "Login" button
+    Then I get proper error message for "locked_out_user"
 
-  @invalid-password
-  Scenario: Login with valid email and invalid password
-    Given I navigated to login page
-    When I entered valid email address as "Tester.testing@test.com" and invalid password as "NotTesterPassword" into the fields
-    And I click on Login button
-    Then I should get proper warning message
+  Scenario: Login to the SauceDemo website as problem user
+    Given I navigated to the "Login" Page
+    Then I see the title as "Swag Labs"
+    And I see the "Username" field
+    And I see the "Password" field
+    And I see the "Login" button
+    And I see the "Login Credentials"
+    And I see the "Login Password"
+    When I enter "Username" as "problem_user"
+    And I enter "Password" as "secret_sauce"
+    And I click the then "Login" button
+    Then I get logged in
 
-  @invalid
-  Scenario: Login with invalid credentials
-    Given I navigated to login page
-    When I entered invalid email address and invalid password as "NotTesterPassword" into the fields
-    And I click on Login button
-    Then I should get proper warning message
+  Scenario: Login to the SauceDemo website as performance glitch user
+    Given I navigated to the "Login" Page
+    Then I see the title as "Swag Labs"
+    And I see the "Username" field
+    And I see the "Password" field
+    And I see the "Login" button
+    And I see the "Login Credentials"
+    And I see the "Login Password"
+    When I enter "Username" as "performance_glitch_user"
+    And I enter "Password" as "secret_sauce"
+    And I click the then "Login" button
+    Then I get logged in
 
-  @nocreate
-  Scenario: Login without entering any credentials
-    Given I navigated to login page
-    When I do not enter anything into the email and password fields
-    And I click on Login button
-    Then I should get proper warning message
+  Scenario: Login to the SauceDemo website as error user
+    Given I navigated to the "Login" Page
+    Then I see the title as "Swag Labs"
+    And I see the "Username" field
+    And I see the "Password" field
+    And I see the "Login" button
+    And I see the "Login Credentials"
+    And I see the "Login Password"
+    When I enter "Username" as "error_user"
+    And I enter "Password" as "secret_sauce"
+    And I click the then "Login" button
+    Then I get logged in
+
+  Scenario: Login to the SauceDemo website as visual user
+    Given I navigated to the "Login" Page
+    Then I see the title as "Swag Labs"
+    And I see the "Username" field
+    And I see the "Password" field
+    And I see the "Login" button
+    And I see the "Login Credentials"
+    And I see the "Login Password"
+    When I enter "Username" as "visual_user"
+    And I enter "Password" as "secret_sauce"
+    And I click the then "Login" button
+    Then I get logged in
+
+  Scenario: Login to the SauceDemo website with empty credentials
+    Given I navigated to the "Login" Page
+    Then I see the title as "Swag Labs"
+    And I see the "Username" field
+    And I see the "Password" field
+    And I see the "Login" button
+    And I see the "Login Credentials"
+    And I see the "Login Password"
+    When I enter "Username" as ""
+    And I enter "Password" as ""
+    And I click the then "Login" button
+    Then I get proper error message for "empty credentials"
+
+  Scenario: Login to the SauceDemo website with wrong credentials
+    Given I navigated to the "Login" Page
+    Then I see the title as "Swag Labs"
+    And I see the "Username" field
+    And I see the "Password" field
+    And I see the "Login" button
+    And I see the "Login Credentials"
+    And I see the "Login Password"
+    When I enter "Username" as "standard_user"
+    And I enter "Password" as "not_secret"
+    And I click the then "Login" button
+    Then I get proper error message for "wrong credentials"
+
+  Scenario: Login to the SauceDemo website with no username
+    Given I navigated to the "Login" Page
+    Then I see the title as "Swag Labs"
+    And I see the "Username" field
+    And I see the "Password" field
+    And I see the "Login" button
+    And I see the "Login Credentials"
+    And I see the "Login Password"
+    When I enter "Username" as " "
+    And I enter "Password" as "not_secret"
+    And I click the then "Login" button
+    Then I get proper error message for "no username"
+
+  Scenario: Login to the SauceDemo website with no password
+    Given I navigated to the "Login" Page
+    Then I see the title as "Swag Labs"
+    And I see the "Username" field
+    And I see the "Password" field
+    And I see the "Login" button
+    And I see the "Login Credentials"
+    And I see the "Login Password"
+    When I enter "Username" as "standard_user"
+    And I enter "Password" as " "
+    And I click the then "Login" button
+    Then I get proper error message for "no password"

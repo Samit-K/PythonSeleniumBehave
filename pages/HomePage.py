@@ -7,15 +7,18 @@ class HomePage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
+    page_title_class_name = "title"
     shopping_cart_class_name = "shopping_cart_link"
     side_menu_button_xpath = "//button[text()='Open Menu']"
     side_menu_item_xpath = "//a[text()='[MENU_ITEM]']"
     inventory_list_class_name = "inventory_list"
+    inventory_item_class_name = "inventory_item"
     inventory_item_name_xpath = "//div[@data-test='inventory-item-name' and text()='[PRODUCT_NAME]']"
     inventory_item_description_xpath = "inventory_item_description"
-    inventory_item_pricebar_add_to_cart_button_class_name = "//div[@class='pricebar']/button"
+    inventory_item_pricebar_add_to_cart_button_xpath = "//div[@class='pricebar']/button"
     inventory_item_price_class_name = "inventory_item_price"
     product_sort_class_name = "product_sort_container"
+    cart_item_number_class_name = "shopping_cart_badge"
 
     def click_on_shopping_cart(self):
         self.click_on_element("shopping_cart_class_name", self.shopping_cart_class_name)
@@ -31,13 +34,3 @@ class HomePage(BasePage):
 
     def check_home_page_title(self, expected_title):
         return self.verify_page_title(expected_title)
-
-
-
-
-
-
-
-
-
-    click_on_item("sauce labs")

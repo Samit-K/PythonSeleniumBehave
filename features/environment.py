@@ -1,6 +1,12 @@
 import allure
 from allure_commons.types import AttachmentType
 from selenium import webdriver
+
+from pages.BasePage import BasePage
+from pages.CartPage import CartPage
+from pages.CheckoutPage import CheckoutPage
+from pages.HomePage import HomePage
+from pages.LoginPage import LoginPage
 from utilities import ConfigReader
 from selenium.webdriver.chrome.options import Options
 
@@ -21,7 +27,13 @@ def before_scenario(context, scenario):
         context.driver = webdriver.Edge()
 
     context.driver.maximize_window()
+    context.driver.implicitly_wait(10)
     context.driver.get(ConfigReader.read_configuration("basic info", "url"))
+    context.home_page = HomePage(context.driver)
+    context.login_page = LoginPage(context.driver)
+    context.cart_page = CartPage(context.driver)
+    context.checkout_page = CheckoutPage(context.driver)
+    context.base_page = BasePage(context.driver)
 
 
 def after_scenario(context, scenario):

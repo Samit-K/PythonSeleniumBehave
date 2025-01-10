@@ -18,8 +18,7 @@ class LoginPage(BasePage):
         self.enter_into_element("password_field_id", self.password_field_id, password)
 
     def click_on_login_button(self):
-        self.click_on_element("login_button_xpath", self.login_button_id)
+        self.click_on_element("login_button_id", self.login_button_id)
 
     def warning_message_displayed(self, expected_warning):
         return self.get_element_text_contains("warning_xpath", self.warning_xpath, expected_warning)
-
