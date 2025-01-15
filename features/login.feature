@@ -11,7 +11,7 @@ Feature: Test Case for Verifying the Login functionality of the SauceDemo websit
     And I see the "Login Password"
     When I enter "Username" as "standard_user"
     And I enter "Password" as "secret_sauce"
-    And I click the then "Login" button
+    And I click the "Login" button
     Then I get logged in
 
   Scenario: Login to the SauceDemo website as locked out user
@@ -24,7 +24,7 @@ Feature: Test Case for Verifying the Login functionality of the SauceDemo websit
     And I see the "Login Password"
     When I enter "Username" as "locked_out_user"
     And I enter "Password" as "secret_sauce"
-    And I click the then "Login" button
+    And I click the "Login" button
     Then I get proper error message for "locked_out_user"
 
   Scenario: Login to the SauceDemo website as problem user
@@ -37,7 +37,7 @@ Feature: Test Case for Verifying the Login functionality of the SauceDemo websit
     And I see the "Login Password"
     When I enter "Username" as "problem_user"
     And I enter "Password" as "secret_sauce"
-    And I click the then "Login" button
+    And I click the "Login" button
     Then I get logged in
 
   Scenario: Login to the SauceDemo website as performance glitch user
@@ -50,7 +50,7 @@ Feature: Test Case for Verifying the Login functionality of the SauceDemo websit
     And I see the "Login Password"
     When I enter "Username" as "performance_glitch_user"
     And I enter "Password" as "secret_sauce"
-    And I click the then "Login" button
+    And I click the "Login" button
     Then I get logged in
 
   Scenario: Login to the SauceDemo website as error user
@@ -63,7 +63,7 @@ Feature: Test Case for Verifying the Login functionality of the SauceDemo websit
     And I see the "Login Password"
     When I enter "Username" as "error_user"
     And I enter "Password" as "secret_sauce"
-    And I click the then "Login" button
+    And I click the "Login" button
     Then I get logged in
 
   Scenario: Login to the SauceDemo website as visual user
@@ -76,7 +76,7 @@ Feature: Test Case for Verifying the Login functionality of the SauceDemo websit
     And I see the "Login Password"
     When I enter "Username" as "visual_user"
     And I enter "Password" as "secret_sauce"
-    And I click the then "Login" button
+    And I click the "Login" button
     Then I get logged in
 
   Scenario: Login to the SauceDemo website with empty credentials
@@ -89,7 +89,7 @@ Feature: Test Case for Verifying the Login functionality of the SauceDemo websit
     And I see the "Login Password"
     When I enter "Username" as ""
     And I enter "Password" as ""
-    And I click the then "Login" button
+    And I click the "Login" button
     Then I get proper error message for "empty credentials"
 
   Scenario: Login to the SauceDemo website with wrong credentials
@@ -102,7 +102,7 @@ Feature: Test Case for Verifying the Login functionality of the SauceDemo websit
     And I see the "Login Password"
     When I enter "Username" as "standard_user"
     And I enter "Password" as "not_secret"
-    And I click the then "Login" button
+    And I click the "Login" button
     Then I get proper error message for "wrong credentials"
 
   Scenario: Login to the SauceDemo website with no username
@@ -113,9 +113,9 @@ Feature: Test Case for Verifying the Login functionality of the SauceDemo websit
     And I see the "Login" button
     And I see the "Login Credentials"
     And I see the "Login Password"
-    When I enter "Username" as " "
+    When I enter "Username" as ""
     And I enter "Password" as "not_secret"
-    And I click the then "Login" button
+    And I click the "Login" button
     Then I get proper error message for "no username"
 
   Scenario: Login to the SauceDemo website with no password
@@ -127,6 +127,6 @@ Feature: Test Case for Verifying the Login functionality of the SauceDemo websit
     And I see the "Login Credentials"
     And I see the "Login Password"
     When I enter "Username" as "standard_user"
-    And I enter "Password" as " "
-    And I click the then "Login" button
+    And I enter "Password" as ""
+    And I click the "Login" button
     Then I get proper error message for "no password"
